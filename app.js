@@ -1,5 +1,9 @@
+var path = require('path');
 var express = require('express');
-var app = express();
+var ndir = require('ndir');
+var config = require('./config').config;
+var app = express.createServer();
+
 app.configure(function(){
 	app.set('view engine', 'jade');
 	app.use(express.static(__dirname + '/public'));
