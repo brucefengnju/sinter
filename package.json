@@ -1,0 +1,11 @@
+{
+	"name": "sinter",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+	"express": "~3.0.0",
+	"ejs": ">= 0.8.0",
+	"mongoose": ">= 2.6.5",
+	"ndir": ">=0.1.3",
+	}
+}
