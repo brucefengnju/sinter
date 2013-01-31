@@ -1,0 +1,45 @@
+body{
+	font-family: Verdana, "宋体";
+}
+a:link { text-decoration: none}
+.site_top{
+	padding: 5px;
+	margin: 5px auto 5px auto;
+	text-align: center;
+}
+.top{
+	float:left;
+	width: 800px;
+	padding: 10px;
+	margin: 10px;
+}
+.log{
+	float:left;
+	padding: 10px;
+	margin: 5px;
+}
+.top h1,a,p{
+	display:inline;
+}
+.content{
+	padding: 10px;
+	margin: 5px auto 5px auto;
+	text-align: center;
+}
+input[type="text"]{
+	width: 600px;
+	margin: 5px;
+}
+textarea{
+	width: 600px;
+	height: 600px;
+	margin: 5px;
+}
+button:hover{
+	background-color: rgba(36, 36, 36, 1.0);
+}
+button{
+	color: black;
+	border-radius: 2px;
+	border:0;
+}
