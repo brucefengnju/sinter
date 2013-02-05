@@ -11,14 +11,16 @@ app.configure(function(){
     app.set('view engine', 'html');
     app.set('views', viewsRoot);
     app.engine('html', require('ejs').renderFile);
+    app.use(express.static(__dirname + '/public'));
     app.use(express.bodyParser());
     app.use(express.cookieParser());
+    app.use("/public", express.static(__dirname + '/public'));
     //app.use(express.session());
     
     // app.use(express.csrf());
     // app.use(function(req,res,next){
     //  res.locals.token = req.session._csrf;
-    //  next();zr
+    //  next();
     // });
 
 });
