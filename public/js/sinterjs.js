@@ -27,10 +27,10 @@ sinter.logout = function(){
 
 	});
 };
-/*navigator.id.watch({
+navigator.id.watch({
 	onlogin:sinter.login,
 	onlogout:sinter.logout
-});*/
+});
 sinter.validate = function(){
 	$article_title = $('#article_title');
 	$article_content = $('#article_content');
