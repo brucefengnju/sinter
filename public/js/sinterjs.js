@@ -3,7 +3,7 @@ sinter.login = function(assertion){
 	$.ajax({
 		type:'POST',
 		url:'login',
-		data:{'assertion':assertion},
+		data:{assertion:assertion},
 		success:function(res,status,xhr){
 
 		},
@@ -19,9 +19,11 @@ sinter.logout = function(){
 		type:'POST',
 		url:'logout',
 		success:function(res,status,xhr){
+			alert('login success');
 
 		},
 		error:function(xhr,status,err){
+			alert('login failed');
 
 		}
 
@@ -71,6 +73,7 @@ $(function(){
 	if($user_login){
 		$user_login.click(function(){
 			navigator.id.request();
+	});
 		});
 	}
 	if($user_logout){

@@ -7,7 +7,7 @@ var https = require('https');
 
 exports.login = function (req,res,next) {
 	var assertion = '';
-	if(typeof req.query.assertion === 'undefined' || req.query.assertion === null ||req.query.assertion ===''){
+	if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
 		return res.redirect('index');
 	}
 	var options = {
