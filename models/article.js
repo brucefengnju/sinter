@@ -12,4 +12,4 @@ var ArticleSchema = new Schema({
 	content:{type:String},
 	author:{type:String,ref:'User'}
 });
-mongoose.model('Article', UserSchema);
+mongoose.model('Article', ArticleSchema);
