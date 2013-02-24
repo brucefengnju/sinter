@@ -5,12 +5,13 @@
  */
 var https = require('https');
 var mongoose = require('mongoose');
-var User = mongoose.model('User')
+var config = require('../config').config;
 exports.login = function (req,res,next) {
+	mongoose.connect(config.db);
 	if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
 		return res.redirect('index');
 	}
-	debugger
+	
 	var options = {
 		hostname:'verifier.login.persona.org',
 		path:'/verify',
@@ -31,7 +32,9 @@ exports.login = function (req,res,next) {
               	valid = response && response.status === "okay";
               	if(valid){
               		req.session['email'] = response.email;
-
+              		
+              	}else{
+              		req.session['email'] = null;
               	}
               	res.json(response);
             }catch(e){
@@ -52,6 +55,7 @@ exports.login = function (req,res,next) {
     vreq.end(data);
 }
 exports.logout = function(req,res){
+	console.log('log out');
 	if(req.session['email'] !== null && req.session['email'] !== undefined){
 		req.session['email'] = null;
 	}

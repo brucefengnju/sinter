@@ -10,7 +10,7 @@ exports.config = {
   site_headers: [
     '<meta name="author" content="brucefeng" />',
   ],
-  db: 'mongodb://127.0.0.1/sinter_db',
+  db: 'mongodb://localhost/sinter_db',
   port:8080,
   host:'localhost'
 };
