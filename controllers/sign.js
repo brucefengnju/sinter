@@ -4,40 +4,57 @@
  * MIT Licensed
  */
 var https = require('https');
-
+var mongoose = require('mongoose');
+var User = mongoose.model('User')
 exports.login = function (req,res,next) {
-	var assertion = '';
 	if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
 		return res.redirect('index');
 	}
+	debugger
 	var options = {
-		hostname:'https://verifier.login.persona.org',
+		hostname:'verifier.login.persona.org',
 		path:'/verify',
 		method:'POST'
 	};
-	var proxyReq = https.request(options,function(proxyRes){
-		proxyRes.setEncoding('utf8');
-		var resdata = '';
-		if(proxyRes.statusCode === 200){
-			
-			proxyRes.on('data',function(chunk){
-				resdata += chunk;
-			});
-			proxyRes.on('end',function(){
 
-				res.redirect("index");
-			});	
-		}
+	var vreq = https.request(options,function(vres){
+		var body = '';
+		vres.on('error',function (error) {
+			console.log('error');
+		});
+		vres.on('data',function (chunk) {
+			body += chunk;
+		});
+		vres.on('end',function(){
+			try{
+				var response = JSON.parse(body),
+              	valid = response && response.status === "okay";
+              	if(valid){
+              		req.session['email'] = response.email;
 
+              	}
+              	res.json(response);
+            }catch(e){
+            	console.log(e);
+            }
+
+		});
 	});
-	proxyReq.on('error',function(e){
-		console.log('error with request: ' + e.message);
-
+	vreq.on('error',function(error){
+		console.log(error);
 	});
-	var data = {
-		'assertion':assertion,
-		'audience':'localhost:8080',
-	};
-	proxyReq.write( JSON.stringify(data));
-	proxyReq.end();
+	vreq.setHeader("Content-Type", "application/json");
+    var data = JSON.stringify({
+      assertion: req.body.assertion,
+      audience: 'http://127.0.0.1:8080'
+    });
+    vreq.setHeader("Content-Length", data.length);
+    vreq.end(data);
+}
+exports.logout = function(req,res){
+	if(req.session['email'] !== null && req.session['email'] !== undefined){
+		req.session['email'] = null;
+	}
+	res.json({status:'okay'})
+	res.redirect('index');
 }

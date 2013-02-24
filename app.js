@@ -15,14 +15,10 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.cookieParser());
     app.use("/public", express.static(__dirname + '/public'));
-    //app.use(express.session());
+    app.use(express.session({
+        secret:'mozillapersona'
+    }));
     
-    // app.use(express.csrf());
-    // app.use(function(req,res,next){
-    //  res.locals.token = req.session._csrf;
-    //  next();
-    // });
-
 });
 // set routes
 routes(app);

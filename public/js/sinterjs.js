@@ -5,7 +5,8 @@ sinter.login = function(assertion){
 		url:'login',
 		data:{assertion:assertion},
 		success:function(res,status,xhr){
-
+			$("#user_login").hide();
+			$('#user_logout').show();
 		},
 		error:function(xhr,status,err){
 
@@ -19,20 +20,14 @@ sinter.logout = function(){
 		type:'POST',
 		url:'logout',
 		success:function(res,status,xhr){
-			alert('login success');
-
 		},
 		error:function(xhr,status,err){
-			alert('login failed');
-
+			
 		}
 
 	});
 };
-navigator.id.watch({
-	onlogin:sinter.login,
-	onlogout:sinter.logout
-});
+
 sinter.validate = function(){
 	$article_title = $('#article_title');
 	$article_content = $('#article_content');
@@ -73,8 +68,8 @@ $(function(){
 	if($user_login){
 		$user_login.click(function(){
 			navigator.id.request();
-	});
 		});
+		
 	}
 	if($user_logout){
 		$user_logout.click(function(){
@@ -102,4 +97,8 @@ $(function(){
 			sinter.draft();
 		});
 	}
+	navigator.id.watch({
+		onlogin:sinter.login,
+		onlogout:sinter.logout
+	});
 });
