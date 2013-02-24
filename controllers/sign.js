@@ -6,6 +6,7 @@
 var https = require('https');
 var mongoose = require('mongoose');
 var config = require('../config').config;
+var model = require('../models');
 exports.login = function (req,res,next) {
 	mongoose.connect(config.db);
 	if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
