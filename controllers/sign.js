@@ -7,8 +7,8 @@ var https = require('https');
 var mongoose = require('mongoose');
 var config = require('../config').config;
 var model = require('../models');
+var User = model.User
 exports.login = function (req,res,next) {
-	mongoose.connect(config.db);
 	if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
 		return res.redirect('index');
 	}
@@ -22,7 +22,7 @@ exports.login = function (req,res,next) {
 	var vreq = https.request(options,function(vres){
 		var body = '';
 		vres.on('error',function (error) {
-			console.log('error');
+			console.log(error);
 		});
 		vres.on('data',function (chunk) {
 			body += chunk;
@@ -33,11 +33,21 @@ exports.login = function (req,res,next) {
               	valid = response && response.status === "okay";
               	if(valid){
               		req.session['email'] = response.email;
-              		
+              		User.findOne({'email':response.email},function (err,user) {
+              			if(err){
+              				next(err);
+              			}
+              			if(!user){
+              				res.locals.userName= null;
+              			}else{
+              				res.locals.userName = user.name;
+              			}
+              		});
               	}else{
               		req.session['email'] = null;
               	}
-              	res.json(response);
+              	//res.json(response);
+              	res.json({name:res.locals.userName,email:response.email,status:response.status});
             }catch(e){
             	console.log(e);
             }

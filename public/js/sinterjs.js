@@ -7,6 +7,7 @@ sinter.login = function(assertion){
 		success:function(res,status,xhr){
 			$("#user_login").hide();
 			$('#user_logout').show();
+			console.log(res);
 		},
 		error:function(xhr,status,err){
 

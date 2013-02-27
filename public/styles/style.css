@@ -97,3 +97,6 @@ button{
 #publish{
 	margin-left:300px;
 }
+.hide{
+	display: none;
+}
