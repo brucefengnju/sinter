@@ -3,7 +3,7 @@ var express = require('express');
 var config = require('./config').config;
 var app = express();
 var routes = require('./routes');
-
+var userproxy = require('./proxy/userproxy');
 /**
  * configuration in all env
  **/
@@ -22,7 +22,10 @@ app.configure(function(){
     
 });
 // set routes
-routes(app);
+//routes(app);
+app.get('/test',function(req,res,next){
+    userproxy.saveOrUpdateUser('testuser5','testuser4@localhost.sinter.com',function(err,user){});
+});
 
 // start app
 app.listen(config.port);

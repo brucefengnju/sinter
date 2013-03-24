@@ -1,0 +1,7 @@
+--require should
+--reporter spec
+--timeout 3000
+--slow 300
+--globals i,__stashes__
+--ui bdd
+var old_console = console;

@@ -5,8 +5,9 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 var config = require('../config');
+
 var UserSchema = new Schema({
 	email:{type:String,unique:true,index:true},
-	name:{type:String}
+	name:{type:String,unique:true}
 });
 mongoose.model('User', UserSchema);
