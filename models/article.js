@@ -10,6 +10,7 @@ var ArticleSchema = new Schema({
 	article_id:{type:String,index:true},
 	title:{type:String},
 	content:{type:String},
-	author:{type:String,ref:'User'}
+	author:{type:String,ref:'User'},
+	publishTime:{type:Date,default:Date.now}
 });
 mongoose.model('Article', ArticleSchema);
