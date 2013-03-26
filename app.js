@@ -21,8 +21,8 @@ app.configure(function(){
     }));
     
 });
-// set routes
-//routes(app);
+//set routes
+routes(app);
 app.get('/test',function(req,res,next){
     userproxy.saveOrUpdateUser('testuser5','testuser4@localhost.sinter.com',function(err,user){});
 });
