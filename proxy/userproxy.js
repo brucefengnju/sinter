@@ -8,7 +8,7 @@ exports.getUserByEmail = function(email,callback) {
     User.findOne({'email':email},callback);
 }
 
-exports.getUsersByName = function(name,callback){
+exports.getUserByName = function(name,callback){
     if(name.length === 0){
         return callback(null,[]);
     }
