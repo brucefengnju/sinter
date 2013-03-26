@@ -20,11 +20,11 @@ exports.getArticlesByAuthor = function(author,callback){
     Article.find({'author':author},callback);
 }
 
-exports.updateArticle = function(article){
+exports.updateArticle = function(article,callback){
     if(article === null){
         return callback(null,[]);
     }
 
     Article.update({'article_id':article.article_id},{$set:{'title':article.title,'content':article.content,
-                                                    'draft':article.draft,publishTime:Date.now}},callback);
+                                                    'draft':article.draft,publishTime:new Date()}},callback);
 }
