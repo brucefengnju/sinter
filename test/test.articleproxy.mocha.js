@@ -80,7 +80,13 @@ describe('../proxy/articleproxy',function(){
                 var article = articles[0];
                 article.title = "updatetitle";
                 article.content = 'update content';
-                articleproxy.updateArticle(article)
+                articleproxy.updateArticle(article,function(err,numAffect){
+                    if(err){
+                        done(err);
+                    }
+                    
+                });
+                done();
             })
         })
     });
