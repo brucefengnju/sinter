@@ -12,4 +12,5 @@ module.exports = function (app) {
 	app.get('/index',site.index);
 	app.post('/login',sign.login);
 	app.post('/logout',sign.logout);
+	app.post('/saveName',sign.saveName);
 };
