@@ -32,9 +32,9 @@ describe('../proxy/userporxy',function(){
         });
     });
 
-    describe('getUsersByName()',function(){
+    describe('getUserByName()',function(){
         it('should found 1 user',function(done){
-            userproxy.getUsersByName('testuser1',function(err,users){
+            userproxy.getUserByName('testuser1',function(err,users){
                 users.should.have.property('name','testuser1');
                 users.should.have.property('email','testuser1@locahost.sinter.com');
             });
