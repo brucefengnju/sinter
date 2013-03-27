@@ -19,7 +19,12 @@ exports.getArticlesByAuthor = function(author,callback){
     }
     Article.find({'author':author},callback);
 }
-
+exports.getArticle = function(author,title,callback){
+    if(!author || !title){
+        return callback(null,[]);
+    }
+    Article.findOne({'author':author,'title':title},callback);
+}
 exports.updateArticle = function(article,callback){
     if(article === null){
         return callback(null,[]);
