@@ -9,6 +9,7 @@ var config = require('../config').config;
 var model = require('../models');
 var User = model.User
 var userProxy = require('../proxy/userproxy');
+var articleProxy = require('../proxy/articleproxy');
 
 exports.login = function (req,res,next) {
     if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
@@ -35,7 +36,7 @@ exports.login = function (req,res,next) {
                 valid = response && response.status === "okay";
                 if(valid){
                     req.session['email'] = response.email;
-                    userProxy.getUserByName(response.email,function(err,user){
+                    userProxy.getUserByEmail(response.email,function(err,user){
                         if(err){
                             next(err);
                         }
