@@ -17,6 +17,7 @@ sinter.login = function(assertion){
                 }else{
                     $("#user_login").hide();
                     $('#user_logout').show();
+                    $("#userName").text(res.name);
                 }
             }else{
                 alert('login error, please try again');
@@ -39,10 +40,12 @@ sinter.saveName = function(name,email){
         data:data,
         type:'POST',
         success:function(res,status){
-            saveSuccess = res.success;
+            $("#user_login").hide();
+            $('#user_logout').show();
+            $("#userName").text(res.name);
         }
     }).complete(function(){
-        return saveSuccess;
+        return saveSuccess; 
     });
 }
 sinter.logout = function(){
