@@ -11,7 +11,7 @@
 	<%- include top.html %>
 	<div id="title">
 		<p> <%= article.title %></p><br>
-		<p> <%= article.author  %></p><br>
+		<p> <a href='/articleList/u/<%=article.author._id%>'><%= article.author.name  %></p></a><br>
 		<span> <%= article.publishTime %> </span>
 	</div>
 	<div id="content">
