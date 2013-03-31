@@ -2,7 +2,7 @@ var sinter = {};
 sinter.login = function(assertion){
     $.ajax({
         type:'POST',
-        url:'login',
+        url:'/login',
         data:{assertion:assertion},
         success:function(res,status,xhr){
             if(res.login){
