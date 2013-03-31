@@ -12,6 +12,8 @@ exports.index = function (req, res, next) {
     res.render('index');
 };
 exports.publishArticle = function(req,res,next){
+    console.log(req.body.title);
+    console.log(req.body.content);
     if(!req.body.title || !req.body.content){
         return res.json({'success':false});
     }
@@ -26,30 +28,37 @@ exports.publishArticle = function(req,res,next){
         if(err){
             return res.json(500,{'error':err});
         }
+
         if(user){
+            console.log(user);
             articleProxy.saveArticle(title,content,user,false,function(err){
                 if(err){
                     return res.json(500,{'error':err});         
                 }
-                return res.json({'title':title,'author':user});
-            }); 
+                articleProxy.getArticle(user,title,function(err,article){
+                    if(err){
+                        return res.json(500,{'error':err});                
+                    }
+                    return res.redirect('/showArticle/p/' + article.article_id);
+                })
+            });
+
         }
         
     });
 }
 
 exports.showArticle = function(req,res,next){
-    if(!req.body.title || req.body.author){
-        return null;
+    if(!req.params.id){
+        return res.json(500,{'success':false});
     }
-    var author = req.body.author;
-    var title = req.body.title;
-    articleProxy.getArticle(author,title,function(err,article){
-        if(err){
+
+    articleProxy.getArticleById(req.params.id,function(err,article){
+        if(err || !article){
             return res.json(500,{'error':err});
         }
-        res.render('article.html',{article:article});
-    })
-
+        console.log(article);
+       return res.render('article.html',{'article':article});
+    });
 
 }

@@ -9,7 +9,7 @@ var config = require('../config').config;
 var model = require('../models');
 var User = model.User
 var userProxy = require('../proxy/userproxy');
-var articleProxy = require('../proxy/articleproxy');
+
 
 exports.login = function (req,res,next) {
     if(typeof req.body.assertion === 'undefined' || req.body.assertion === null ||req.body.assertion ===''){
