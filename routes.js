@@ -13,4 +13,7 @@ module.exports = function (app) {
 	app.post('/login',sign.login);
 	app.post('/logout',sign.logout);
 	app.post('/saveName',sign.saveName);
+
+	app.get('/showArticle/p/:id',site.showArticle);
+	app.post('/publishArticle',site.publishArticle);
 };
