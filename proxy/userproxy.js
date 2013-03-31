@@ -1,6 +1,5 @@
 var User = require('../models').User;
 
-
 exports.getUserByEmail = function(email,callback) {
     if(email.length===0){
         return callback(null,[]);

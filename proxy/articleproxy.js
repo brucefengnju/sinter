@@ -1,5 +1,5 @@
-var Article = require('../models').Article;
 
+var Article = require('../models').Article;
 exports.saveArticle = function(title,content,author,draft,callback){
     var article = new Article({'title':title,'content':content,'author':author,'draft':draft});
     article.article_id = article._id;
@@ -12,7 +12,12 @@ exports.getArticlesByTitle = function(title,callback){
     }
     Article.find({'title':title},callback);
 }
-
+exports.getArticleById = function(id,callback){
+    if(!id || !id.length){
+        return callback(null,[]);
+    }
+    Article.findOne({'_id':id},callback);
+}
 exports.getArticlesByAuthor = function(author,callback){
     if(!author){
         return callback(null,[]);
