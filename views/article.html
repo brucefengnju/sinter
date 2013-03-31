@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="/styles/persona-buttons.css">
+	<title>Sinter</title>
+</head>
+
+<body>
+	<%- include top.html %>
+	<div id="title">
+		<p> <%= article.title %></p><br>
+		<p> <%= article.author  %></p><br>
+		<span> <%= article.publishTime %> </span>
+	</div>
+	<div id="content">
+		<p> <%= article.content %> </p><br>
+	</div>
+	<%- include footer.html %>
+	<script src="https://login.persona.org/include.js"></script>
+	<script type="text/javascript" src="/js/libs/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="/js/sinterjs.js"></script>
+
+</body>
+</html>

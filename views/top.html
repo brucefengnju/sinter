@@ -6,10 +6,13 @@
 			<p>Write simple</p>
 		</div>
 		<div class="log">
+			<% if(!useremail){ %>
 			<a class="persona-button" id='user_login'>
 				<span>signin</span></a>
+				<%} else{ %>
 			<a class="persona-button" href="#" id='user_logout' style="display:none">
 				<span id='userName'>logout</span></a>
+				<% } %>
 		</div>
 		<div style="clear:both"></div>
 	</div>
