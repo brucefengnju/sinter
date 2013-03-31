@@ -15,18 +15,17 @@ app.configure(function(){
     app.use(express.static(__dirname + '/public'));
     app.use(express.bodyParser());
     app.use(express.cookieParser());
-    app.use("/public", express.static(__dirname + '/public'));
     app.use(express.session({
         secret:'mozillapersona'
     }));
+    app.use(function(req,res,next){
+        res.locals.useremail = req.session.email;
+        next();
+    });
     
 });
 //set routes
 routes(app);
-app.get('/test',function(req,res,next){
-    userproxy.saveOrUpdateUser('testuser5','testuser4@localhost.sinter.com',function(err,user){});
-});
-
 // start app
 app.listen(config.port);
 console.log("sinter listening on port %d in %s mode",config.port,app.settings.env);
