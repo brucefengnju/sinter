@@ -57,8 +57,19 @@ exports.showArticle = function(req,res,next){
         if(err || !article){
             return res.json(500,{'error':err});
         }
-        console.log(article);
        return res.render('article.html',{'article':article});
     });
 
+}
+
+exports.articleList = function(req,res,next){
+    if(!req.params.authorId){
+        return res.json(500,{'success':false});
+    }
+    articleProxy.getArticlesByAuthor(req.params.authorId,function(err,articles){
+        if(err){
+            return res.json(500,{'error':err});
+        }
+        return res.render('articleList.html',{'articles':articles});
+    });
 }
