@@ -15,5 +15,6 @@ module.exports = function (app) {
 	app.post('/saveName',sign.saveName);
 
 	app.get('/showArticle/p/:id',site.showArticle);
+	app.get('/articleList/u/:authorId',site.articleList);
 	app.post('/publishArticle',site.publishArticle);
 };
