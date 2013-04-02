@@ -5,30 +5,17 @@ sinter.login = function(assertion){
         url:'/login',
         data:{assertion:assertion},
         success:function(res,status,xhr){
-            if(res.login){
-                if(res.needname){
-                    var name = '';
-                    while(!name){
-                        name=prompt('please input a name');
-                    }
-                    var email = res.email;
-                    var issuccess = sinter.saveName(name,email);
-                    console.log(issuccess);
-                }else{
-                    $("#user_login").hide();
-                    $('#user_logout').show();
-                    $("#userName").text(res.name);
+            if(res.needName){
+                var name = '';
+                while(!name){
+                    name=prompt('please input a name');
                 }
+                var email = res.email;
+                sinter.saveName(name,email);
             }else{
-                alert('login error, please try again');
+                $("#UserInfoDiv").html(res);
             }
-
-            console.log(res);
-        },
-        error:function(xhr,status,err){
-
         }
-
     });
 };
 sinter.saveName = function(name,email){

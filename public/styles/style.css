@@ -83,7 +83,7 @@ textarea{
 button:hover{
 	background-color: #00E;
 }
-button{
+button,input{
 	border-radius: 2px;
 	border:0;
 	width:70px;
@@ -99,4 +99,12 @@ button{
 }
 .hide{
 	display: none;
+}
+.simpleButton{
+	border-radius: 2px;
+	border:0;
+	width:70px;
+	height:25px;
+	background-color: #1BA9D4;
+	color:#fff;
 }

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="../public/styles/style.css">
-    <link rel="stylesheet" type="text/css" href="../public/styles/persona-buttons.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/persona-buttons.css">
     <title>Sinter</title>
 </head>
 
@@ -15,18 +15,14 @@
             <textarea name='content' class="contents" wrap='virtual'></textarea></br>
 
             <button id="preview" name="preview" value="preview">preview</button>
-            <input type="submit" value="publish"/>
-            <!--<button id="publish" name='publish' value="publish">publish</button>-->
+            <input type="submit" name="publish" value="publish"/>
         </div>
     </form>
-    <!-- <div class="site_bottom">
-        <p>Sinter is an open source software created by Bruce Chen,hosted on <a href='https://github.com/brucefengnju/sinter'>github</a></p>
-    </div> -->
     
     <%- include footer.html %>
     <script src="https://login.persona.org/include.js"></script>
-    <script type="text/javascript" src="../public/js/libs/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../public/js/sinterjs.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/js/sinterjs.js"></script>
 
 </body>
 </html>

@@ -9,11 +9,19 @@ var userProxy = require('../proxy/userproxy');
 var articleProxy = require('../proxy/articleproxy');
 
 exports.index = function (req, res, next) {
-    res.render('index');
+    if(req.session.email){
+        userProxy.getUserByEmail(req.session.email,function(err,user){
+            if(err){
+                return res.json(500,{'error':err});
+            }
+            res.render('index.html',{'user':user});
+        });
+
+    }else{
+        return res.render('index.html',{'user':null});
+    }
 };
 exports.publishArticle = function(req,res,next){
-    console.log(req.body.title);
-    console.log(req.body.content);
     if(!req.body.title || !req.body.content){
         return res.json({'success':false});
     }
@@ -30,7 +38,6 @@ exports.publishArticle = function(req,res,next){
         }
 
         if(user){
-            console.log(user);
             articleProxy.saveArticle(title,content,user,false,function(err){
                 if(err){
                     return res.json(500,{'error':err});         
