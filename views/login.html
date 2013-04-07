@@ -1,0 +1,13 @@
+<% if(!user){ %>
+        <a class="persona-button" id='user_login'>
+            <span>signin</span>
+        </a>
+<%} else{ %>
+    <div id="LogInfo">
+        <a class="persona-button" href="/articleList/u/<%= user._id %>" id='userInfo'>
+            <span id='userName' value='<%= user.name %>'><%=user.name%></span>
+        </a>
+        <a class="simpleButton" href="/logout" id='userLogout'>logout</a>
+    </div>
+
+<% } %>

@@ -40,15 +40,16 @@ exports.login = function (req,res,next) {
                         if(err){
                             next(err);
                         }
-                        if(user){
-                            return res.json({'login':true,'needname':false,'email':user.email,'name':user.name});
+                        if(!user || user.name){
+                            return res.render('login.html',{'user':user});
                         }else{
-                            return res.json({'login':true,'needname':true,'email':response.email,'name':''});
+                            return res.json({'needName':true});
                         }
+                        
                     });
                 }else{
                     req.session['email'] = null;
-                    return res.json({'login':true});
+                    return res.render('login.html',{'user':null});
                 }
             }catch(e){
                 console.log(e);
@@ -83,5 +84,5 @@ exports.logout = function(req,res){
     if(req.session['email'] !== null && req.session['email'] !== undefined){
         req.session['email'] = null;
     }
-    res.json({status:'okay'})
+    return res.render('index.html',{'user':null});
 }

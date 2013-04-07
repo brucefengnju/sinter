@@ -2,31 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="../public/styles/style.css">
-    <link rel="stylesheet" type="text/css" href="../public/styles/persona-buttons.css">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/persona-buttons.css">
     <title>Sinter</title>
 </head>
 
 <body>
     <%- include top.html %>
     <form id="ArticleForm" method="POST" action="publishArticle">
-        <div class="content">
+        <div id="ArticleDiv" class="content">
             <input name ='title' type="text" id = "content_title" class="title" maxlength = '100'/><br/>
-            <textarea name='content' class="contents" wrap='virtual'></textarea></br>
+            <textarea id='content' name='content' class="contents" wrap='virtual'></textarea></br>
 
-            <button id="preview" name="preview" value="preview">preview</button>
-            <input type="submit" value="publish"/>
-            <!--<button id="publish" name='publish' value="publish">publish</button>-->
+            <button id="preview" name="preview" value="preview" onclick='sinter.preview(event)'>
+                preview
+            </button>
+            <input type="submit" name="publish" value="publish"/>
+        </div>
+        <div id="ArticlePreviewDiv" class="hide">
+            <label id="PriviewTitle" class="title">testtitle</label><br/>
+            <label id="PreviewContent" class="contents">testcontent</label><br/>
+            <button id="closeButton" class="leftbutton" onclick="sinter.cancel(event)">cancel</button>
+            <input type="submit" name="publish" value="publish" class="rightbutton"/>
         </div>
     </form>
-    <!-- <div class="site_bottom">
-        <p>Sinter is an open source software created by Bruce Chen,hosted on <a href='https://github.com/brucefengnju/sinter'>github</a></p>
-    </div> -->
     
     <%- include footer.html %>
     <script src="https://login.persona.org/include.js"></script>
-    <script type="text/javascript" src="../public/js/libs/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../public/js/sinterjs.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/js/sinterjs.js"></script>
 
 </body>
 </html>

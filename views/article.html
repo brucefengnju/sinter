@@ -9,12 +9,12 @@
 
 <body>
 	<%- include top.html %>
-	<div id="title">
+	<div id="title" class='middle'>
 		<p> <%= article.title %></p><br>
-		<p> <%= article.author  %></p><br>
+		<p> <a href='/articleList/u/<%=article.author._id%>'><%= article.author.name  %></p></a><br>
 		<span> <%= article.publishTime %> </span>
 	</div>
-	<div id="content">
+	<div id="content" class='middle'>
 		<p> <%= article.content %> </p><br>
 	</div>
 	<%- include footer.html %>

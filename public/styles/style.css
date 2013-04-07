@@ -49,6 +49,12 @@ a {
 	text-align: center;
 	box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
 }
+.middle{
+	padding: 10px;
+	margin: 5px auto 5px auto;
+	text-align: center;
+	box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
+}
 .site_bottom{
 	padding: 5px;
 	margin: 5px auto 5px auto;
@@ -83,7 +89,7 @@ textarea{
 button:hover{
 	background-color: #00E;
 }
-button{
+button,input{
 	border-radius: 2px;
 	border:0;
 	width:70px;
@@ -98,5 +104,23 @@ button{
 	margin-left:300px;
 }
 .hide{
+	display:none;
+}
+
+.leftbutton{
+	margin-right: 300px;	
+}
+.rightbutton{
+	margin-left:300px;	
+}
+.hide{
 	display: none;
+}
+.simpleButton{
+	border-radius: 2px;
+	border:0;
+	width:70px;
+	height:25px;
+	background-color: #1BA9D4;
+	color:#fff;
 }

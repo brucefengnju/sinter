@@ -1,18 +1,24 @@
-	<div class="site_top">
-		<div class="top">
-			<h1>
-				<a href="/">Sinter</a>
-			</h1>
-			<p>Write simple</p>
-		</div>
-		<div class="log">
-			<% if(!useremail){ %>
-			<a class="persona-button" id='user_login'>
-				<span>signin</span></a>
-				<%} else{ %>
-			<a class="persona-button" href="#" id='user_logout' style="display:none">
-				<span id='userName'>logout</span></a>
-				<% } %>
-		</div>
-		<div style="clear:both"></div>
-	</div>
+    <div class="site_top">
+        <div class="top">
+            <h1>
+                <a href="/">Sinter</a>
+            </h1>
+            <p>Write simple</p>
+        </div>
+        <div id="UserInfoDiv" class="log">
+           <% if(!user){ %>
+                    <a class="persona-button" id='user_login'>
+                        <span>signin</span>
+                    </a>
+            <%} else{ %>
+                <div id="LogInfo">
+                    <a class="persona-button" href="/articleList/u/<%= user._id %>" id='userInfo'>
+                        <span id='userName' value='<%= user.name %>'><%=user.name%></span>
+                    </a>
+                    <a class="simpleButton" href="/logout" id='userLogout'>logout</a>
+                </div>
+
+            <% } %>
+        </div>
+        <div style="clear:both"></div>
+    </div>

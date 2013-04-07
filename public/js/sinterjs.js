@@ -5,30 +5,17 @@ sinter.login = function(assertion){
         url:'/login',
         data:{assertion:assertion},
         success:function(res,status,xhr){
-            if(res.login){
-                if(res.needname){
-                    var name = '';
-                    while(!name){
-                        name=prompt('please input a name');
-                    }
-                    var email = res.email;
-                    var issuccess = sinter.saveName(name,email);
-                    console.log(issuccess);
-                }else{
-                    $("#user_login").hide();
-                    $('#user_logout').show();
-                    $("#userName").text(res.name);
+            if(res.needName){
+                var name = '';
+                while(!name){
+                    name=prompt('please input a name');
                 }
+                var email = res.email;
+                sinter.saveName(name,email);
             }else{
-                alert('login error, please try again');
+                $("#UserInfoDiv").html(res);
             }
-
-            console.log(res);
-        },
-        error:function(xhr,status,err){
-
         }
-
     });
 };
 sinter.saveName = function(name,email){
@@ -80,12 +67,16 @@ sinter.validate = function(){
         return canpublish;
     }
 };
-sinter.preview = function(){
-        // do preview
-};
-sinter.publish = function(){
-        // do publish
+sinter.preview = function(event){
+    $("#PriviewTitle").text($("#content_title").val());
+    $("#PreviewContent").text($("#content").val());
+    
+    $("#ArticleDiv").hide();
 
+    $("#ArticlePreviewDiv").removeClass('hide');
+    $("#ArticlePreviewDiv").addClass('content');
+    event.preventDefault();
+        
 };
 sinter.edit = function(){
     console.log('edit')
@@ -93,6 +84,12 @@ sinter.edit = function(){
 sinter.draft = function(){
     console.log('draft');
 };
+sinter.cancel = function(event){
+    $("#ArticleDiv").show();
+    $("#ArticlePreviewDiv").removeClass("content");
+    $("#ArticlePreviewDiv").addClass("hide");
+    event.preventDefault();
+}
 window.sinter = sinter;
 
 $(function(){
@@ -107,27 +104,6 @@ $(function(){
     if($user_logout){
         $user_logout.click(function(){
             navigator.id.logout();
-        });
-    }
-    var $preview = $('#preview');
-    var $publish = $('#publish');
-    var $save_draft = $('#save_draft');
-    if($preview){
-        $preview.click(function(){
-            sinter.validate();
-            sinter.preview();
-        });
-    }
-    if($publish){
-        $publish.click(function(){
-            sinter.validate();
-            sinter.publish();
-        });
-    }
-    if($save_draft){
-        $save_draft.click(function(){
-            sinter.validate();
-            sinter.draft();
         });
     }
     navigator.id.watch({
