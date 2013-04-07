@@ -9,11 +9,13 @@
 
 <body>
     <%- include top.html %>
-    <% if(articles.length){ %>
-        <% for(var i = 0;i< articles.length;i++){ %>
-        <p><a href="/showArticle/p/<%=articles[i]._id %>"><%= articles[i].title %></p><br/>
-        <% } %>
-    <% }%>
+    <div class='middle'>
+        <% if(articles.length){ %>
+            <% for(var i = 0;i< articles.length;i++){ %>
+            <p><a href="/showArticle/p/<%=articles[i]._id %>"><%= articles[i].title %></p><br/>
+            <% } %>
+        <% }%>
+    </div>
     <%- include footer.html %>
     <script src="https://login.persona.org/include.js"></script>
     <script type="text/javascript" src="/js/libs/jquery-1.9.0.min.js"></script>

@@ -10,12 +10,20 @@
 <body>
     <%- include top.html %>
     <form id="ArticleForm" method="POST" action="publishArticle">
-        <div class="content">
+        <div id="ArticleDiv" class="content">
             <input name ='title' type="text" id = "content_title" class="title" maxlength = '100'/><br/>
-            <textarea name='content' class="contents" wrap='virtual'></textarea></br>
+            <textarea id='content' name='content' class="contents" wrap='virtual'></textarea></br>
 
-            <button id="preview" name="preview" value="preview">preview</button>
+            <button id="preview" name="preview" value="preview" onclick='sinter.preview(event)'>
+                preview
+            </button>
             <input type="submit" name="publish" value="publish"/>
+        </div>
+        <div id="ArticlePreviewDiv" class="hide">
+            <label id="PriviewTitle" class="title">testtitle</label><br/>
+            <label id="PreviewContent" class="contents">testcontent</label><br/>
+            <button id="closeButton" class="leftbutton" onclick="sinter.cancel(event)">cancel</button>
+            <input type="submit" name="publish" value="publish" class="rightbutton"/>
         </div>
     </form>
     
