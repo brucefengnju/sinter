@@ -1,126 +1,160 @@
 body{
-	background-color: #2D3743;
-	font-family: "PT Sans" !important;
-	margin: 0;
-	padding: 0;
-	padding-bottom: 40px;
-
-	text-shadow: 0 -1px black, 0 -2px #222;
-	text-shadow: rgba(0, 0, 0, 0.7) 0 -1px, rgba(0, 0, 0, 0.3) 0 -2px;
-	padding-bottom: 10px;
-	font-size: 140%;
-	margin-bottom:20px;
-	
-	color:#fff;
+    background-color: #2D3743;
+    font-family: "PT Sans" !important;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 40px;
+    text-shadow: 0 -1px black, 0 -2px #222;
+    text-shadow: rgba(0, 0, 0, 0.7) 0 -1px, rgba(0, 0, 0, 0.3) 0 -2px;
+    padding-bottom: 10px;
+    font-size: 140%;
+    margin-bottom:20px;
+    color:#fff;
 }
 a { 
-	text-decoration: none;
-	color:#fff;
+    text-decoration: none;
+    color:#fff;
 }
+ ul {   
+   list-style-type: none;   
+   margin: 0;   
+   padding: 0;   
+ }   
+ li {   
+   font: 100 15px/1.5 Helvetica, Verdana, sans-serif;   
+ }
+ li a:hover{
+    font-size: 20px;
+ }
+     
 .site_top{
-	padding: 5px;
-	margin: 5px auto 5px auto;
-	text-align: center;
-	box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
-	width: 800px;
-	height: 100px;
-	background-image: url("../image/bg-main.png");
+    padding: 5px;
+    margin: 5px auto 5px auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
+    width: 800px;
+    height: 100px;
+    background-image: url("../image/bg-main.png");
 }
 .top{
-	float:left;
-	width: 500px;
-	padding: 10px;
-	margin: 0px;
+    float:left;
+    width: 500px;
+    padding: 10px;
+    margin: 0px;
 }
 .top p{
-	font-size: 10px;
+    font-size: 10px;
 }
 .log{
-	float:left;
-	padding: 10px;
-	margin: 5px;
+    float:left;
+    padding: 10px;
+    margin: 5px;
 }
 .top h1,a,p{
-	display:inline;
+    display:inline;
 }
 .content{
-	padding: 10px;
-	margin: 5px auto 5px auto;
-	text-align: center;
-	box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
 }
 .middle{
-	padding: 10px;
-	margin: 5px auto 5px auto;
-	text-align: center;
-	box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
+    padding: 10px;
+    margin: 5px auto 5px 250px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px, rgba(0, 0, 0, 0.01) 0 2px;
 }
 .site_bottom{
-	padding: 5px;
-	margin: 5px auto 5px auto;
-	text-align: left;
-	width:800px;
-	font-size: 5px;
+    padding: 5px;
+    margin: 5px auto 5px auto;
+    text-align: left;
+    width:800px;
+    font-size: 10px;
 }
 input[type="text"],textarea{
-	background: rgba(0,0,0,0.3);
-	margin-left: 20px;
-	margin-right: 20px;
-	padding: 10px;
-	padding-left: 10px;
-	border-radius: 5px;
-	border-width:1px;
-	border-color: black;
-	color:#fff;
+    background: rgba(0,0,0,0.3);
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border-width:1px;
+    border-color: black;
+    color:#fff;
 
 }
 input[type="text"]{
-	width: 800px;
-	margin: 5px;
-	font-size: 20px;
+    width: 800px;
+    margin: 5px;
+    font-size: 20px;
 }
 textarea{
-	width: 800px;
-	height: 600px;
-	margin: 5px;
-	resize:none;
-	font-size: 25px;
+    width: 800px;
+    height: 600px;
+    margin: 5px;
+    resize:none;
+    font-size: 25px;
 }
 button:hover{
-	background-color: #00E;
+    background-color: #00E;
 }
 button,input{
-	border-radius: 2px;
-	border:0;
-	width:70px;
-	height:25px;
-	background-color: #1BA9D4;
-	color:#fff;
+    border-radius: 2px;
+    border:0;
+    width:70px;
+    height:25px;
+    background-color: #1BA9D4;
+    color:#fff;
 }
+
+.clear {
+    clear: both;
+    line-height: 0;
+    font-size: 0;
+}
+
 #preview{
-	margin-right: 300px;
+    margin-right: 300px;
 }
 #publish{
-	margin-left:300px;
+    margin-left:300px;
 }
 .hide{
-	display:none;
+    display:none;
 }
 
 .leftbutton{
-	margin-right: 300px;	
+    margin-right: 300px;    
 }
 .rightbutton{
-	margin-left:300px;	
+    margin-left:300px;  
 }
 .hide{
-	display: none;
+    display: none;
 }
 .simpleButton{
-	border-radius: 2px;
-	border:0;
-	width:70px;
-	height:25px;
-	background-color: #1BA9D4;
-	color:#fff;
+    border-radius: 2px;
+    border:0;
+    width:70px;
+    height:25px;
+    background-color: #1BA9D4;
+    color:#fff;
+}
+.article{
+
+}
+.title h1{
+    font: 14px Arial, Helvetica, sans-serif;
+    color: #1BA9D4;
+}
+.note{
+    font-size: 13px;
+    line-height: 1.62;
+    font-family: Arial,Helvetica,sans-serif;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
 }

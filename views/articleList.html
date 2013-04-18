@@ -11,9 +11,16 @@
     <%- include top.html %>
     <div class='middle'>
         <% if(articles.length){ %>
+            <ul>
             <% for(var i = 0;i< articles.length;i++){ %>
-            <p><a href="/showArticle/p/<%=articles[i]._id %>"><%= articles[i].title %></p><br/>
+
+                <li>
+                    <p><a href="/showArticle/p/<%=articles[i]._id %>">
+                        <%= articles[i].title %></a>
+                    </p><br/>
+                </li>
             <% } %>
+            </ul>
         <% }%>
     </div>
     <%- include footer.html %>
